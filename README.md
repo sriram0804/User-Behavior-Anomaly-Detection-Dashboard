@@ -2,9 +2,9 @@
 
 A real-time dashboard for detecting anomalous user behavior based on login activity, session patterns, and IP address changes. Built using **React**, **Flask**, **MongoDB**, and an **Isolation Forest** ML model.
 
-![Dashboard Screenshot](C:\Users\lenovo\Documents\1.png) <!-- Optional: Replace with your screenshot path -->
 
----
+<img width="564" alt="1" src="https://github.com/user-attachments/assets/0494e62b-9563-4f3d-95bd-f41d3255350c" />
+
 
 ## 🚀 Features
 
