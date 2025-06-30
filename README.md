@@ -1,70 +1,59 @@
-# Getting Started with Create React App
+# 🧠 User Behavior Anomaly Detection Dashboard
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A real-time dashboard for detecting anomalous user behavior based on login activity, session patterns, and IP address changes. Built using **React**, **Flask**, **MongoDB**, and an **Isolation Forest** ML model.
 
-## Available Scripts
+![Dashboard Screenshot](C:\Users\lenovo\Documents\1.png) <!-- Optional: Replace with your screenshot path -->
 
-In the project directory, you can run:
+---
 
-### `npm start`
+## 🚀 Features
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- 📥 Real-time log simulation and ingestion
+- 🧠 Unsupervised anomaly detection using Isolation Forest
+- 📊 Interactive dashboard with anomaly flags (✅ / ⚠️)
+- 🧩 Modular code structure for easy integration and scaling
+- 📦 MongoDB NoSQL backend for fast and flexible storage
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+---
 
-### `npm test`
+## 🛠️ Tech Stack
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+| Layer        | Technology                          |
+|--------------|--------------------------------------|
+| Frontend     | React.js, Axios                      |
+| Backend API  | Flask, Flask-CORS                    |
+| ML Model     | Scikit-learn (Isolation Forest)      |
+| Database     | MongoDB (local or cloud via Atlas)   |
+| Other Tools  | Python, Requests, Pandas, NumPy      |
 
-### `npm run build`
+---
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## 🧬 How It Works
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### 1️⃣ Log Generation
+A script `generate_live_logs.py` simulates login activity with randomized:
+- `user_id`
+- `IP`
+- `Device`
+- `Login Count`
+- `Session Duration`
+- `IP Change Count`
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Logs are POSTed to the backend every few seconds.
 
-### `npm run eject`
+### 2️⃣ Anomaly Detection
+Backend uses an **Isolation Forest** ML model to:
+- Analyze the log
+- Label it as anomalous (`True`) or normal (`False`)
+- Store it in MongoDB with the label
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### 3️⃣ Frontend Dashboard
+The React frontend:
+- Fetches logs via `GET /api/logs`
+- Displays them in a table
+- Highlights anomalies using icons and colors (✔️/⚠️)
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+---
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## 📂 Project Structure
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
