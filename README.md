@@ -56,4 +56,19 @@ The React frontend:
 ---
 
 ## 📂 Project Structure
+├── backend/
+│ ├── app.py
+│ ├── model.py
+│ ├── routes/
+│ │ └── api.py
+│ ├── generate_live_logs.py
+│ └── ...
+├── frontend/
+│ ├── public/
+│ ├── src/
+│ │ ├── App.js
+│ │ ├── components/
+│ │ │ └── LogTable.js
+│ └── ...
+└── README.md
 
